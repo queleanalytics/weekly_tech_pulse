@@ -18,8 +18,88 @@ if (Sys.getenv("ANTHROPIC_API_KEY") == "") {
 # =========================================================================
 target_platforms <- c(
   Databricks   = "https://databricks.com",
+  Andrewgelman = "https://statmodeling.stat.columbia.edu/",
   Posit        = "https://posit.co",
   R_Bloggers   = "https://feedburner.com",
+  Scott_Mixtape_Substack = "https://causalinf.substack.com/",
+  Ahead_of_AI= "https://magazine.sebastianraschka.com/",
+  deeplearning_ai= "https://www.deeplearning.ai/the-batch",
+  TheSequence= "https://thesequence.substack.com/",
+  Import_AI_JackClark= "https://importai.substack.com/", 
+  Zeyi_Yang_MIT_Technology_Review= "https://www.technologyreview.com/", 
+
+  # Statistiques et Machine Learning
+  Christian_Robert                = "https://xianblog.wordpress.com/category/statistics/",
+  Error_Statistics_Philosophy     = "https://errorstatistics.com/",
+  Notes_From_a_Data_Witch         = "https://blog.djnavarro.net",
+  Observational_Epidemiology      = "https://observationalepidemiology.blogspot.com/",
+  R_Bloggers                      = "https://www.r-bloggers.com/",
+  Sharon_Lohr                     = "https://www.sharonlohr.com/blog",
+  Statistical_Methodology_Meanderings = "https://tpmorris.substack.com",
+  Ryan_Giordano                   = "https://rgiordan.github.io/blog.html",
+  Statistical_Thinking            = "https://www.fharrell.com/#posts",
+  The_Endeavour                   = "https://www.johndcook.com/blog/",
+  Thomas_Lumley                   = "https://notstatschat.rbind.io/",
+  
+  # Visualisation
+  Junk_Charts                     = "https://www.junkcharts.com",
+  Kieran_Healy                    = "https://kieranhealy.org/",
+  Road_to_Larissa                 = "https://roadtolarissa.com",
+  
+  # Sciences sociales et politiques
+  Book_and_Sword                  = "https://www.bookandsword.com",
+  Department_of_Data              = "https://www.washingtonpost.com/people/andrew-van-dam/",
+  Family_Inequality                = "https://familyinequality.wordpress.com/",
+  Gojiberries                     = "https://www.gojiberries.io",
+  Imperfect_Information            = "https://rajivsethi.substack.com",
+  Inequality_by_Interior_Design    = "https://inequalitybyinteriordesign.wordpress.com",
+  Just_the_Social_Facts_Maam      = "https://justthesocialfacts.blogspot.fr/",
+  Made_in_America                 = "https://madeinamericathebook.wordpress.com/",
+  Marginal_Revolution              = "https://www.marginalrevolution.com/",
+  Monthly_Labor_Review             = "https://www.bls.gov/opub/mlr/home.htm",
+  Strength_in_Numbers               = "https://gelliottmorris.substack.com",
+  Urban_Institute_blog             = "https://www.urban.org/urban-wire",
+  
+  # Sciences cognitives et comportementales
+  Data_Colada                     = "https://datacolada.org/",
+  Dorothy_Bishop                  = "https://deevybee.blogspot.com/",
+  Inframethodology                 = "https://inframethodology.cbs.dk/?page_id=7555",
+  Judgment_Misguided               = "https://judgmentmisguided.blogspot.com",
+  Language_Log                    = "https://languagelog.ldc.upenn.edu/nll/",
+  
+  # Sciences generales et ingenierie
+  Media_404                       = "https://www.404media.co",
+  Azimuth                          = "https://johncarlosbaez.wordpress.com",
+  Dan_Luu                          = "https://danluu.com",
+  Idle_Words                       = "https://idlewords.com",
+  James_Heathers                  = "https://jamesclaims.substack.com",
+  Lucidity                          = "https://ludic.mataroa.blog",
+  Marcelo_Rinesi                  = "https://blog.rinesi.com",
+  Nick_Brown                      = "https://steamtraen.blogspot.com/",
+  Technically_Food                 = "https://technicallyfood.substack.com",
+  Retraction_Watch                 = "https://retractionwatch.com/",
+  The_Eighteenth_Elephant          = "https://eighteenthelephant.com",
+  # Sport
+  Defector                         = "https://defector.com/category/chess/",
+  Exploring_Baseball_Data_with_R  = "https://baseballwithr.wordpress.com/",
+  # Culturel
+  Alec_Nevala_Lee                  = "https://nevalalee.wordpress.com",
+  Alexandras_Kitchen               = "https://alexandracooks.com",
+  Do_You_Write_Under_Your_Own_Name = "https://doyouwriteunderyourownname.blogspot.com",
+  Literambivalence                  = "https://jrobertlennon.com/literambivalence",
+  MPorcius_Fiction_Log              = "https://mporcius.blogspot.com/",
+  Namerology                        = "https://namerology.com/category/articles/",
+  News_From_Me                      = "https://www.newsfromme.com/",
+  Plagiarism_Today                  = "https://www.plagiarismtoday.com/",
+  PostSecret                        = "https://postsecret.com/",
+  Psychobabble                      = "https://psychobabble200.blogspot.com",
+  Quote_Investigator                = "https://quoteinvestigator.com/",
+  Rebecca_Makkai                    = "https://rebeccamakkai.substack.com",
+  Stuff_Ive_Been_Reading            = "https://www.thebeliever.net/type/stuff-ive-been-reading/",
+  The_Dizzies                        = "https://thedizzies.substack.com/",
+  The_Neglected_Books_Page          = "https://neglectedbooks.com",
+  The_Amateur                        = "https://cecilycarver.substack.com",
+  The_Patron_Saint_of_Superheroes   = "https://thepatronsaintofsuperheroes.wordpress.com/",
   Hugging_Face = "https://huggingface.co"
 )
 
