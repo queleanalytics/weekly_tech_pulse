@@ -118,11 +118,94 @@ extract_platform_content <- function(url, name) {
     
     # Selecting the best CSS nodes per platform to filter out navbars/footers
     css_selector <- switch(name,
-                           "Databricks"   = ".in-the-spotlight, [class*='featured'], article, h4", 
-                           "Posit"        = "[class*='customer-story'], [class*='resource'], article, h3",
-                           "R_Bloggers"   = ".feed-item, item, entry, [class*='post']",
-                           "Hugging_Face" = "[class*='trending'], h4, article, [class*='model']"
-    )
+  # --- Existantes ---
+  "Databricks"   = ".in-the-spotlight, [class*='featured'], article, h4",
+  "Posit"        = "[class*='customer-story'], [class*='resource'], article, h3",
+  "R_Bloggers"   = ".feed-item, item, entry, [class*='post']",
+  "Hugging_Face" = "[class*='trending'], h4, article, [class*='model']",
+
+  # --- IA / Actualite ---
+  "Scott_Mixtape_Substack"        = "[class*='post-preview'], article, h3, [class*='post']",
+  "Ahead_of_AI"                   = "[class*='post-preview'], article, h3, [class*='post']",
+  "deeplearning_ai"               = "article, h2, h3, [class*='title'], [class*='card']",
+  "TheSequence"                   = "[class*='post-preview'], article, h3, [class*='post']",
+  "Import_AI_JackClark"           = "[class*='post-preview'], article, h3, [class*='post']",
+  "Zeyi_Yang_MIT_Technology_Review" = "article, h2, h3, [class*='title'], [class*='card']",
+
+  # --- Statistiques et Machine Learning ---
+  "Christian_Robert"              = "article, h2.entry-title, .entry-title, h2, .post",
+  "Error_Statistics_Philosophy"   = "article, h2.entry-title, .entry-title, h2, .post",
+  "Notes_From_a_Data_Witch"       = "article, h2, h3, li a",
+  "Observational_Epidemiology"    = ".post, h3.post-title, [class*='post-title'], article",
+  "Sharon_Lohr"                   = "article, h2.entry-title, .entry-title, h2, .post",
+  "Statistical_Methodology_Meanderings" = "[class*='post-preview'], article, h3, [class*='post']",
+  "Ryan_Giordano"                 = "article, h2, h3, li a",
+  "Statistical_Thinking"          = "article, h2, h3, li a",
+  "The_Endeavour"                 = "article, h2.entry-title, .entry-title, h2, .post",
+  "Thomas_Lumley"                 = "article, h2, h3, li a",
+
+  # --- Visualisation ---
+  "Junk_Charts"                   = "article, h2, h3, [class*='title'], [class*='card']",
+  "Kieran_Healy"                  = "article, h2, h3, li a",
+  "Road_to_Larissa"               = "article, h2, h3, li a",
+
+  # --- Sciences sociales et politiques ---
+  "Book_and_Sword"                = "article, h2.entry-title, .entry-title, h2, .post",
+  "Department_of_Data"            = "article, h2, h3, [class*='title'], [class*='card']",
+  "Family_Inequality"             = "article, h2.entry-title, .entry-title, h2, .post",
+  "Gojiberries"                   = "article, h2.entry-title, .entry-title, h2, .post",
+  "Imperfect_Information"         = "[class*='post-preview'], article, h3, [class*='post']",
+  "Inequality_by_Interior_Design" = "article, h2.entry-title, .entry-title, h2, .post",
+  "Just_the_Social_Facts_Maam"    = ".post, h3.post-title, [class*='post-title'], article",
+  "Made_in_America"               = "article, h2.entry-title, .entry-title, h2, .post",
+  "Marginal_Revolution"           = "article, h2, h3, [class*='title'], [class*='card']",
+  "Monthly_Labor_Review"          = "article, h2, h3, [class*='title'], [class*='card']",
+  "Strength_in_Numbers"           = "[class*='post-preview'], article, h3, [class*='post']",
+  "Urban_Institute_blog"          = "article, h2, h3, [class*='title'], [class*='card']",
+
+  # --- Sciences cognitives et comportementales ---
+  "Data_Colada"                   = "article, h2.entry-title, .entry-title, h2, .post",
+  "Dorothy_Bishop"                = ".post, h3.post-title, [class*='post-title'], article",
+  "Inframethodology"              = "article, h2.entry-title, .entry-title, h2, .post",
+  "Judgment_Misguided"            = ".post, h3.post-title, [class*='post-title'], article",
+  "Language_Log"                  = "article, h2, h3, li a",
+
+  # --- Sciences generales et ingenierie ---
+  "Media_404"                     = "article, h2, h3, [class*='title'], [class*='card']",
+  "Azimuth"                       = "article, h2.entry-title, .entry-title, h2, .post",
+  "Dan_Luu"                       = "article, h2, h3, li a",
+  "Idle_Words"                    = "article, h2, h3, li a",
+  "James_Heathers"                = "[class*='post-preview'], article, h3, [class*='post']",
+  "Lucidity"                      = "article, h2, h3, li a",
+  "Marcelo_Rinesi"                = "article, h2.entry-title, .entry-title, h2, .post",
+  "Nick_Brown"                    = ".post, h3.post-title, [class*='post-title'], article",
+  "Technically_Food"              = "[class*='post-preview'], article, h3, [class*='post']",
+  "Retraction_Watch"              = "article, h2.entry-title, .entry-title, h2, .post",
+  "The_Eighteenth_Elephant"       = "article, h2.entry-title, .entry-title, h2, .post",
+
+  # --- Sport ---
+  "Defector"                      = "article, h2, h3, [class*='title'], [class*='card']",
+  "Exploring_Baseball_Data_with_R" = "article, h2.entry-title, .entry-title, h2, .post",
+
+  # --- Culturel ---
+  "Alec_Nevala_Lee"               = "article, h2.entry-title, .entry-title, h2, .post",
+  "Alexandras_Kitchen"            = "article, h2.entry-title, .entry-title, h2, .post",
+  "Do_You_Write_Under_Your_Own_Name" = ".post, h3.post-title, [class*='post-title'], article",
+  "Literambivalence"              = "article, h2.entry-title, .entry-title, h2, .post",
+  "MPorcius_Fiction_Log"          = ".post, h3.post-title, [class*='post-title'], article",
+  "Namerology"                    = "article, h2.entry-title, .entry-title, h2, .post",
+  "News_From_Me"                  = "article, h2, h3, li a",
+  "Plagiarism_Today"              = "article, h2.entry-title, .entry-title, h2, .post",
+  "PostSecret"                    = "article, h2, h3, [class*='title'], [class*='card']",
+  "Psychobabble"                  = ".post, h3.post-title, [class*='post-title'], article",
+  "Quote_Investigator"            = "article, h2.entry-title, .entry-title, h2, .post",
+  "Rebecca_Makkai"                = "[class*='post-preview'], article, h3, [class*='post']",
+  "Stuff_Ive_Been_Reading"        = "article, h2, h3, [class*='title'], [class*='card']",
+  "The_Dizzies"                   = "[class*='post-preview'], article, h3, [class*='post']",
+  "The_Neglected_Books_Page"      = "article, h2.entry-title, .entry-title, h2, .post",
+  "The_Amateur"                   = "[class*='post-preview'], article, h3, [class*='post']"
+)
+
     
     filtered_nodes <- page %>% html_nodes(css_selector)
     
