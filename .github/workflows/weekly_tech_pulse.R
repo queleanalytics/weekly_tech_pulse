@@ -20,7 +20,7 @@ target_platforms <- c(
   Databricks   = "https://databricks.com",
   Andrewgelman = "https://statmodeling.stat.columbia.edu/",
   Posit        = "https://posit.co",
-  R_Bloggers   = "https://feedburner.com",
+  R_Bloggers   = "https://www.r-bloggers.com/",
   Scott_Mixtape_Substack = "https://causalinf.substack.com/",
   Ahead_of_AI= "https://magazine.sebastianraschka.com/",
   deeplearning_ai= "https://www.deeplearning.ai/the-batch",
